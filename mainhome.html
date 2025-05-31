@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover Your Next Journey</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0d0f3f;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 2rem;
+    }
+
+    .form-container {
+      background: #262b5f;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    input[type="date"] {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 0.5rem;
+      border: none;
+      background-color: #3a3f73;
+      color: white;
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #bbb;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+      font-size: 0.9rem;
+    }
+
+    .submit-button {
+      background-color: #ffd400;
+      color: black;
+      border: none;
+      padding: 1rem;
+      border-radius: 0.7rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #fbc300;
+    }
+
+    .icon-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .icon-row span {
+      font-size: 2rem;
+      color: #ffd400;
+    }
+  </style>
+  <script>
+  
+      document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector(".submit-button").addEventListener("click", function () {
+        const selectElement = document.getElementById("destination");
+        const selectedText = selectElement.options[selectElement.selectedIndex].text;
+        event.preventDefault();
+
+        if (selectedText === "일본") {
+          window.location.href = "./Japan Travel Website/Japen.html";
+        } 
+        else if (selectedText === "대만") {
+          window.location.href = "index.html";
+        } 
+        else {
+          console.log("선택하십셩~!")
+        }
+        
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <h1>DISCOVER YOUR NEXT JOURNEY</h1>
+  <p>일본과 대만, 당신만을 위한 맞춤 여행 추천</p>
+
+  <div class="icon-row">
+    <span>🌟</span>
+    <span>🚉</span>
+  </div>
+
+  <form class="form-container">
+    <label for="destination">여행지 선택</label>
+    <select id="destination">
+      <option value="" disabled selected>여행지를 선택하세요</option>
+      <option value="japan">일본</option>
+      <option value="taiwan">대만</option>
+    </select>
+
+    <label>성별</label>
+    <div class="radio-group">
+      <label><input type="radio" name="gender" /> 남성</label>
+      <label><input type="radio" name="gender" /> 여성</label>
+      <label><input type="radio" name="gender" /> 기타</label>
+    </div>
+
+    <label for="age">나이</label>
+    <input type="number" id="age" placeholder="나이를 입력하세요" />
+
+    <label>흥미있는 분야 (복수 선택 가능)</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox"/> 음식</label>
+      <label><input type="checkbox"/> 관광</label>
+      <label><input type="checkbox"/> 쇼핑</label>
+      <label><input type="checkbox"/> 문화</label>
+    </div>
+
+    <label for="start-date">여행 시작일</label>
+    <input type="date" id="start-date"/>
+
+    <label for="end-date">여행 종료일</label>
+    <input type="date" id="end-date"/>
+
+    <button class="submit-button">여행 정보 제출</button>
+  </form>
+</body>
+</html>
