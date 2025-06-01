@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -97,6 +98,28 @@
       color: #ffd400;
     }
   </style>
+  <script>
+  
+      document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector(".submit-button").addEventListener("click", function () {
+        const selectElement = document.getElementById("destination");
+        const selectedText = selectElement.options[selectElement.selectedIndex].text;
+        event.preventDefault();
+
+        if (selectedText === "일본") {
+          window.location.href = "./Japan Travel Website/Japen.html";
+        } 
+        else if (selectedText === "대만") {
+          window.location.href = "index.html";
+        } 
+        else {
+          console.log("선택하십셩~!")
+        }
+        
+      });
+    });
+
+  </script>
 </head>
 <body>
   <h1>DISCOVER YOUR NEXT JOURNEY</h1>
@@ -139,7 +162,8 @@
     <label for="end-date">여행 종료일</label>
     <input type="date" id="end-date"/>
 
-    <button type="submit" class="submit-button">여행 정보 제출</button>
+    <button class="submit-button">여행 정보 제출</button>
   </form>
 </body>
 </html>
+
